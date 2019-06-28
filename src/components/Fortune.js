@@ -2,29 +2,25 @@ import React, { useState } from 'react'
 import fortunes from '../data/fortunes'
 
 export default function Fortune() {
-  const [fortune, setFortune] = useState()
+  const [fortune, setFortune] = useState(getFortune())
 
-  function getFortune(e) {
+  function getFortune() {
+    return fortunes[Math.floor(Math.random() * fortunes.length)]
+  }
+
+  function handleClick(e) {
     e.preventDefault()
-    setFortune(fortunes[Math.floor(Math.random() * fortunes.length)])
+    setFortune(getFortune())
   }
 
   return (
     <>
       <div className="fortune">
-        {fortune ? (
-          <h1 className="fortune-text">{fortune}</h1>
-        ) : (
-          <button className="fortune-button" onClick={getFortune}>
-            Fortunez 4 free
-          </button>
-        )}
+        <h1 className="fortune-text">{fortune}</h1>
       </div>
-      {fortune ? (
-        <button className="fortune-reset" onClick={getFortune}>
-          &#x21bb;
-        </button>
-      ) : null}
+      <button className="fortune-reset" onClick={handleClick}>
+        &#x21bb;
+      </button>
     </>
   )
 }

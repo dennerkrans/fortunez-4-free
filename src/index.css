@@ -7,8 +7,16 @@ code {
 }
 
 button {
-  border-color: transparent;
   cursor: pointer;
+}
+
+#root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.3) 66%, rgba(255, 255, 255, 0.7)), url('./assets/cookie.jpg');
 }
 
 .fortune {
@@ -20,13 +28,7 @@ button {
 
 .fortune-text {
   font-weight: normal;
-}
-
-.fortune-button {
-  padding: 1rem;
-  background-color: #ffffff;
-  border-color: #000000;
-  font-size: 1rem;
+  text-shadow: #f58b6c 2px 2px;
 }
 
 .fortune-reset {
@@ -34,6 +36,12 @@ button {
   bottom: 10px;
   right: 10px;
   font-size: 1.5rem;
+  border-color: transparent;
+  background: transparent;
+}
+
+.fortune-reset:focus {
+  outline: dotted 1px #f58b6c;
 }
 
 @media screen and (max-width: 768px) {
